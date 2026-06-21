@@ -1,0 +1,16 @@
+{
+  "name": "daily-algorithm",
+  "version": "1.0.0",
+  "description": "매일 하나씩 푸는 알고리즘 문제 풀이 🛠️",
+  "main": "index.js",
+  "scripts": {
+    "format": "prettier --write \"**/*.js\"",
+    "format:check": "prettier --check \"**/*.js\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^3.8.4"
+  }
+}
