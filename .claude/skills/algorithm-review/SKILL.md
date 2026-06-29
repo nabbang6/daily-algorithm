@@ -73,10 +73,31 @@ Bash 도구로 `git status`를 실행해 untracked 또는 modified 파일 목록
 자신보다 높은 점수의 학생 수를 세어 등수 배열에 누적한다.
 ```
 
+### Step 6: 문제.md 파일명 변경
+
+`.md` 파일의 이름이 `문제.md`인 경우, 영어 kebab-case 이름으로 변경한다.
+
+- 문제 내용을 바탕으로 영어 kebab-case 파일명을 직접 결정한다.
+  예: 회문문자열 → `palindrome-string.md`, 등수 구하기 → `ranking-students.md`
+- 기존 다른 문제들의 파일명 규칙을 참고한다 (영어, 소문자, 하이픈 구분).
+- 파일이 git에 이미 tracked된 경우 `git mv`를 사용하고,
+  untracked인 경우 PowerShell의 `Rename-Item`을 사용한다.
+
+예시 (untracked):
+```powershell
+Rename-Item -Path "js-algorithm\3. 문자열 탐색\3.1.회문문자열\문제.md" -NewName "palindrome-string.md"
+```
+
+예시 (tracked):
+```bash
+git mv "js-algorithm/3. 문자열 탐색/3.1.회문문자열/문제.md" "js-algorithm/3. 문자열 탐색/3.1.회문문자열/palindrome-string.md"
+```
+
 ## 주의사항
 
 - 사용자 코드와 문서를 절대 변경하거나 삭제하지 않는다
 - `solution.js`는 하단에 추가, `.md`는 기존 `-` 플레이스홀더만 교체한다
+- `.md` 파일명이 `문제.md`가 아닌 경우 Step 6을 건너뛴다
 - 주석 형식은 파일의 언어에 맞게 조정한다 (JS/Java: `/* */`, Python: `"""` 또는 `#`, 등)
 - 이미 Claude 해설이 있으면 덮어쓰지 않고 사용자에게 먼저 확인한다
 - `## 📌 풀이 방법` 아래 내용이 이미 채워져 있으면 덮어쓰지 않고 사용자에게 먼저 확인한다
