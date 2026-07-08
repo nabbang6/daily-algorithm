@@ -7,8 +7,13 @@ description: 알고리즘 풀이를 리뷰하고 해설과 더 나은 풀이를 
 
 `git status`로 현재 변경사항을 감지해 풀이 폴더를 자동으로 찾는다.
 
-- `solution.js` 하단에 상세 해설을 추가한다.
-- `.md` 파일의 `## 📌 풀이 방법` 섹션 내 `-` 플레이스홀더를 1~4줄 요약으로 채운다.
+> **모든 단계를 반드시 완료해야 한다. Step 4만 하고 끝내지 않는다.**
+
+이 스킬은 아래 세 가지 출력물을 모두 만들어야 완료된다:
+
+1. **`solution.js` 하단** — 상세 해설 주석 추가 (Step 4)
+2. **`.md` 풀이 방법 섹션** — 핵심 접근법 요약으로 채우기 (Step 5)
+3. **`문제.md` 파일명** — 영어 kebab-case로 변경 (Step 6, 해당하는 경우)
 
 ## Instructions
 
@@ -83,15 +88,29 @@ Bash 도구로 `git status`를 실행해 untracked 또는 modified 파일 목록
 - 파일이 git에 이미 tracked된 경우 `git mv`를 사용하고,
   untracked인 경우 PowerShell의 `Rename-Item`을 사용한다.
 
+파일 이동은 항상 bash의 `mv` 명령을 사용한다 (PowerShell `Rename-Item`은 사용하지 않는다).
+
 예시 (untracked):
-```powershell
-Rename-Item -Path "js-algorithm\3. 문자열 탐색\3.1.회문문자열\문제.md" -NewName "palindrome-string.md"
+
+```bash
+mv "js-algorithm/4. 완전 탐색/4.2.뒤집은 소수/문제.md" "js-algorithm/4. 완전 탐색/4.2.뒤집은 소수/reversed-prime.md"
 ```
 
 예시 (tracked):
+
 ```bash
 git mv "js-algorithm/3. 문자열 탐색/3.1.회문문자열/문제.md" "js-algorithm/3. 문자열 탐색/3.1.회문문자열/palindrome-string.md"
 ```
+
+## 완료 체크리스트
+
+모든 Step을 마친 후 아래 세 항목을 반드시 확인하고 사용자에게 결과를 보고한다.
+
+- [ ] **Step 4** `solution.js` 하단에 `/* ===== Claude 해설 ===== */` 블록이 추가되었는가?
+- [ ] **Step 5** `.md`의 `## 📌 풀이 방법` 섹션이 요약 텍스트로 채워졌는가?
+- [ ] **Step 6** 파일명이 `문제.md`였다면 영어 kebab-case로 변경되었는가?
+
+체크리스트를 모두 확인한 뒤 "완료: Step 4 ✓ / Step 5 ✓ / Step 6 ✓" 형태로 사용자에게 보고한다.
 
 ## 주의사항
 
